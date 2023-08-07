@@ -1,4 +1,4 @@
-# React 项目实战
+# React 项目实战（爪哇实战）
 
 https://cnodejs.org/
 
