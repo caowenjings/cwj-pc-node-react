@@ -14,7 +14,9 @@ const WJNotFound: React.FC = () => {
     <NotFoundWrapper>
       <h2>404</h2>
       <h5>Oops,it looks like u are lost</h5>
-      <div onClick={goHome}>Back to home Page</div>
+      <div onClick={goHome} className="btn-cursor">
+        Back to home Page
+      </div>
     </NotFoundWrapper>
   );
 };

@@ -1,11 +1,11 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import Router from "./router/index";
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import WJMain from './views/main';
 
 function App() {
   return (
     <BrowserRouter>
-      <Router />
+      <WJMain />
     </BrowserRouter>
   );
 }

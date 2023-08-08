@@ -1,6 +1,6 @@
-# React 项目实战（爪哇实战）
+# React 项目实战
 
-https://cnodejs.org/
+https://cnodejs.org/（爪哇实战）
 
 ## react 18.6 + ts + hook + router 6 创建项目
 
