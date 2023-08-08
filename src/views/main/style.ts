@@ -14,4 +14,9 @@ export const Fixed = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  background: '#222';
+  img {
+    width: 50px;
+    height: 50px;
+  }
 `;

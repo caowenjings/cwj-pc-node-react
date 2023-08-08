@@ -2,8 +2,12 @@
 import React, { useState, memo } from 'react';
 
 import Router from '../../router/index';
+import { navList } from '@/content/index';
 
+import Tabber from '@/components/tabber';
 import { MainWrapper, Fixed } from './style';
+
+import logoImg from '../../assets/svg/logo.svg';
 
 const WJMain: React.FC = (props) => {
   const [data, setData] = useState(0);
@@ -11,7 +15,8 @@ const WJMain: React.FC = (props) => {
   return (
     <MainWrapper>
       <Fixed>
-        <img src={require('../../assets/svg/logo.svg')} alt="" />
+        <img src={logoImg} alt="" />
+        <Tabber value={navList} />
       </Fixed>
       <Router />
     </MainWrapper>
