@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const MainWrapper = styled.div`
+  background-color: #e1e1e1;
   min-height: 100vh;
-  padding-top: 62px;
+  padding-top: 82px;
 `;
 
 export const Fixed = styled.div`

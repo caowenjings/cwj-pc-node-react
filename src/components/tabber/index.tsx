@@ -2,15 +2,17 @@
 import React, { memo, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Tabber } from '@/types/index';
+import { ColorType } from '@/content/style';
 
 import { TabbarWrapper, TabbarList } from './style';
 
-interface IProps {
+export interface IProps {
   value: Tabber[];
+  theme?: ColorType;
 }
 
 const TabberPage: React.FC<IProps> = (props) => {
-  const { value } = props;
+  const { value, theme = 'WHITE' as ColorType } = props;
   const [name, setName] = useState('');
   const navigate = useNavigate();
 
@@ -20,7 +22,7 @@ const TabberPage: React.FC<IProps> = (props) => {
 
   return (
     <TabbarWrapper>
-      <TabbarList>
+      <TabbarList theme={theme}>
         {value.map((item: Tabber) => (
           <div
             className={name === item.name ? 'active' : ''}
