@@ -1,21 +1,42 @@
 /** 首页页面 */
-import React, { useState, memo } from 'react';
+import React, { useState, memo, useCallback, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { tabList } from '@/content';
+import sdk from '@/service/node';
+import useAsync from '@/hook/useAsync';
 
 import ScrollList from '@/components/scroll-list';
 import Tabber from '@/components/tabber';
 import { TabWrapper, ListWrapper } from './style';
 
+const PAGE_SIZE = 20;
+
 const AllPage: React.FC = () => {
   const [data, setData] = useState([]);
-  const [loading, stLoading] = useState(false);
   const [completed, setCompleted] = useState(false);
 
   const { tag = '' } = useParams();
 
   const getLodeMore = () => {};
+
+  /** 获取列表请求 */
+  const getTopicsByTab = useCallback(() => {
+    return sdk.getTopicsByTab(tag, 1, PAGE_SIZE);
+  }, [tag]);
+
+  const { loading, run } = useAsync(getTopicsByTab, {
+    mannual: true,
+    onSuccess: (res: any) => {
+      console.log(99, res);
+    },
+    onError: () => {}
+  });
+
+  useEffect(() => {
+    run();
+  }, []);
+  /** 获取更多 */
 
   return (
     <div>
