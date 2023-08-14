@@ -1,4 +1,5 @@
 /** 异步请求封装 */
+import { wait } from '@testing-library/user-event/dist/utils';
 import { useEffect, useRef, useCallback, useState } from 'react';
 
 interface AsyncResult<T> {
@@ -16,6 +17,7 @@ interface ErrorHandler {
 }
 
 const noop = () => {};
+
 const defaultOption = {
   mannual: false,
   onSuccess: noop as SuccessHandler,
@@ -29,26 +31,34 @@ const defaultOption = {
 
 const useAsync = <T>(action: () => Promise<any>, customOption: object = {}): AsyncResult<T> => {
   const [loading, setLoading] = useState(false);
+
+  const option = { ...defaultOption, ...customOption };
+
   const result = useRef<T>();
-  const option = Object.assign({}, defaultOption, customOption);
 
   // 执行请求
   const run = useCallback(() => {
+    console.log(40, loading);
+    if (loading) {
+      return;
+    }
     setLoading(true);
     const ret: Promise<any> = action();
+
     if (ret.then) {
       ret
         .then((res) => {
           result.current = option.onSuccess(res) || res;
         })
         .catch(() => {
-          option.onError;
+          option.onError('失败');
         })
         .finally(() => {
-          setLoading(false);
+          setTimeout(() => {
+            console.log(22);
+            setLoading(false);
+          }, 3000);
         });
-    } else {
-      setLoading(false);
     }
   }, [action]);
 

@@ -16,8 +16,8 @@ class Node extends Service {
    */
   getTopicsByTab(tab: string, page: number = 1, limit: number = 20) {
     return this.get('/topics', {
-      page: page,
-      limit: limit,
+      page,
+      limit,
       tab
     });
   }

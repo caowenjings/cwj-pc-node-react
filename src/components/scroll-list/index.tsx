@@ -1,5 +1,6 @@
 /** 下拉加载更多列表 */
 import React from 'react';
+import Loading from '@/components/loading';
 
 interface IProps {
   loading: boolean;
@@ -10,7 +11,12 @@ interface IProps {
 
 const ScrollListPage: React.FC<IProps> = (props: IProps) => {
   const { loading, completed, children, onLoad } = props;
-  return <>{children}</>;
+  return (
+    <div>
+      {children}
+      <div>{loading && <Loading text="玩命加载中" />}</div>
+    </div>
+  );
 };
 
 export default React.memo(ScrollListPage);

@@ -1,13 +1,15 @@
 /** 首页页面 */
 import React, { useState, memo, useCallback, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Button } from 'antd';
 
 import { tabList } from '@/content';
 import sdk from '@/service/node';
-import useAsync from '@/hook/useAsync';
+import useAsync from '@/hooks/useAsync';
 
 import ScrollList from '@/components/scroll-list';
 import Tabber from '@/components/tabber';
+import Card from './components/card';
 import { TabWrapper, ListWrapper } from './style';
 
 const PAGE_SIZE = 20;
@@ -29,6 +31,7 @@ const AllPage: React.FC = () => {
     mannual: true,
     onSuccess: (res: any) => {
       console.log(99, res);
+      setData(res.data);
     },
     onError: () => {}
   });
@@ -43,11 +46,12 @@ const AllPage: React.FC = () => {
       <TabWrapper>
         <Tabber value={tabList} theme="GREEN" />
       </TabWrapper>
+      <Button onClick={run}>sss</Button>
 
       <ListWrapper>
         <ScrollList loading={loading} completed={completed} onLoad={getLodeMore}>
           {data.map((item) => {
-            return <div>123</div>;
+            return <Card data={item} />;
           })}
         </ScrollList>
       </ListWrapper>

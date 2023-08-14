@@ -6,7 +6,8 @@ import { SuccessFormat } from '@/types/index';
 /** 成功时的统一处理 */
 const handelSuccess = (res: AxiosResponse, resolve: (res: any) => void) => {
   const response: SuccessFormat = res.data;
-  if (response.hasOwnProperty('success')) {
+
+  if (Object.prototype.hasOwnProperty.call(response, 'success')) {
     if (response.success) {
       resolve(response);
     } else {
