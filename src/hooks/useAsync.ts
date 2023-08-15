@@ -1,5 +1,4 @@
 /** 异步请求封装 */
-import { wait } from '@testing-library/user-event/dist/utils';
 import { useEffect, useRef, useCallback, useState } from 'react';
 
 interface AsyncResult<T> {
@@ -19,29 +18,25 @@ interface ErrorHandler {
 const noop = () => {};
 
 const defaultOption = {
-  mannual: false,
+  mannual: false, //自动触发请求：false 自动触发第一次请求，true不触发
   onSuccess: noop as SuccessHandler,
   onError: noop as ErrorHandler
 };
 
 /**
  * @param {Function} action 返回一个Promise
- * @param {Object} customOption
+ * @param {Object} customOption 最后返回的参数
  */
 
 const useAsync = <T>(action: () => Promise<any>, customOption: object = {}): AsyncResult<T> => {
   const [loading, setLoading] = useState(false);
-
   const option = { ...defaultOption, ...customOption };
-
   const result = useRef<T>();
 
   // 执行请求
   const run = useCallback(() => {
-    console.log(40, loading);
-    if (loading) {
-      return;
-    }
+    if (loading) return;
+
     setLoading(true);
     const ret: Promise<any> = action();
 
@@ -54,18 +49,16 @@ const useAsync = <T>(action: () => Promise<any>, customOption: object = {}): Asy
           option.onError('失败');
         })
         .finally(() => {
-          setTimeout(() => {
-            console.log(22);
-            setLoading(false);
-          }, 3000);
+          setLoading(false);
         });
+    } else {
+      setLoading(false);
     }
-  }, [action]);
+  }, [action, loading]);
 
-  //   /**  */
-  //   useEffect(() => {
-  //     run();
-  //   }, []);
+  useEffect(() => {
+    !option.mannual && run();
+  }, []);
 
   return { loading, run, result: result.current };
 };

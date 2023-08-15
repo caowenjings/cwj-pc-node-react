@@ -28,7 +28,7 @@ const AllPage: React.FC = () => {
   }, [tag]);
 
   const { loading, run } = useAsync(getTopicsByTab, {
-    mannual: true,
+    mannual: false,
     onSuccess: (res: any) => {
       console.log(99, res);
       setData(res.data);
@@ -36,9 +36,7 @@ const AllPage: React.FC = () => {
     onError: () => {}
   });
 
-  useEffect(() => {
-    run();
-  }, []);
+  useEffect(() => {}, []);
   /** 获取更多 */
 
   return (
