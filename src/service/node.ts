@@ -3,6 +3,7 @@ import Service from './index';
 class Node extends Service {
   constructor() {
     super({
+      // baseURL: 'https://cnodejs.org/api/v1',
       baseURL: 'https://cnodejs.org/api/v1',
       timeout: 8000
     });

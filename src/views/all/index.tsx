@@ -1,10 +1,11 @@
 /** 首页页面 */
-import React, { memo, useCallback, useEffect } from 'react';
+import React, { memo, useCallback, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { tabList } from '@/content';
 import sdk from '@/service/node';
 import useLoadMore from '@/hooks/useLoadMore';
+import { isEmpty } from '@/utils/index';
 
 import ScrollList from '@/components/scroll-list';
 import Tabber from '@/components/tabber';
@@ -16,7 +17,6 @@ const PAGE_SIZE = 20;
 const AllPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const tag = searchParams.get('tab') || '';
-  console.log(999, tag);
 
   /** 获取列表请求 */
   const getTopicsByTab = useCallback(
@@ -37,14 +37,14 @@ const AllPage: React.FC = () => {
       },
       isNoMore: ({ data }) => {
         return data && data.length > PAGE_SIZE;
-      },
-      tag
+      }
     },
     [tag]
   );
 
-  useEffect(() => {}, []);
-  /** 获取更多 */
+  const hasList = useMemo(() => {
+    return !isEmpty(list);
+  }, [list]);
 
   return (
     <AllWrapper>
@@ -52,11 +52,13 @@ const AllPage: React.FC = () => {
         <Tabber value={tabList} theme="GREEN" />
       </TabWrapper>
       <ListWrapper>
-        <ScrollList loading={loading} completed={completed} onLoad={loadMore}>
-          {list.map((item) => {
-            return <Card data={item} />;
-          })}
-        </ScrollList>
+        {hasList && (
+          <ScrollList loading={loading} completed={completed} onLoad={loadMore}>
+            {list.map((item) => {
+              return <Card data={item} />;
+            })}
+          </ScrollList>
+        )}
       </ListWrapper>
     </AllWrapper>
   );

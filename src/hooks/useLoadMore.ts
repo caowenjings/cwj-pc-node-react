@@ -31,16 +31,12 @@ const useLoadMore = (action: (res: any) => Promise<any>, option: Option = defaul
   const infoRef = useRef({
     completed: false,
     page: 1,
-    tag: option.tag || '',
     list: [] as any[]
   });
 
-  useEffect(() => {}, [...deps]);
-
   // 初始处理请求
   const actionHandler = useCallback(() => {
-    console.log(29, infoRef.current.tag);
-    return action({ page: infoRef.current.page, pageSize: option.initPageSize, tag: infoRef.current.tag });
+    return action({ page: infoRef.current.page, pageSize: option.initPageSize });
   }, [action]);
 
   // 请求处理
@@ -64,7 +60,6 @@ const useLoadMore = (action: (res: any) => Promise<any>, option: Option = defaul
   useEffect(() => {
     infoRef.current = {
       page: 1,
-      tag: option.tag || '',
       list: defaultList || [],
       completed: false
     };

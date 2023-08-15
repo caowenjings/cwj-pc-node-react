@@ -40,7 +40,7 @@ const ScrollListPage: React.FC<IProps> = (props: IProps) => {
 
     return () => {
       // 关闭监听
-      observer.current && observer.current.unobserve(bottomEl.current);
+      observer.current && bottomEl.current && observer.current.unobserve(bottomEl.current);
     };
   }, []);
 
