@@ -9,6 +9,7 @@ import { TabbarWrapper, TabbarList } from './style';
 export interface IProps {
   value: Tabber[];
   theme?: ColorType;
+  onClick?: (route: any) => void;
 }
 
 const TabberPage: React.FC<IProps> = (props) => {
@@ -17,8 +18,8 @@ const TabberPage: React.FC<IProps> = (props) => {
   const navigate = useNavigate();
 
   const handelJump = (route: string) => {
-    console.log(999, route);
     navigate(route);
+    props.onClick && props.onClick(route);
   };
 
   return (

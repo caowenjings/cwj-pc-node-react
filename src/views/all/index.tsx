@@ -1,5 +1,5 @@
 /** 首页页面 */
-import React, { memo, useCallback, useEffect, useMemo } from 'react';
+import React, { memo, useCallback, useRef, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { tabList } from '@/content';
@@ -15,13 +15,20 @@ import { TabWrapper, ListWrapper, AllWrapper } from './style';
 const PAGE_SIZE = 20;
 
 const AllPage: React.FC = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const tag = searchParams.get('tab') || '';
+  const [tag, setTag] = useState('');
+  const tag1 = useRef('');
+
+  const handleChange = (router: any) => {
+    const data = router.split('/?tab=');
+    const result = data[data.length - 1] === '/' ? '' : data[data.length - 1];
+    setTag(result);
+    tag1.current = result;
+  };
 
   /** 获取列表请求 */
   const getTopicsByTab = useCallback(
     (info: any) => {
-      return sdk.getTopicsByTab(tag, info.page || 1, PAGE_SIZE);
+      return sdk.getTopicsByTab(tag1.current, info.page || 1, PAGE_SIZE);
     },
     [tag]
   );
@@ -49,7 +56,7 @@ const AllPage: React.FC = () => {
   return (
     <AllWrapper>
       <TabWrapper>
-        <Tabber value={tabList} theme="GREEN" />
+        <Tabber value={tabList} theme="GREEN" onClick={handleChange} />
       </TabWrapper>
       <ListWrapper>
         {hasList && (
