@@ -27,7 +27,6 @@ const defaultOption = {
  * @param {Function} action 返回一个Promise
  * @param {Object} customOption 最后返回的参数
  */
-
 const useAsync = <T>(action: () => Promise<any>, customOption: object = {}): AsyncResult<T> => {
   const [loading, setLoading] = useState(false);
   const option = { ...defaultOption, ...customOption };
@@ -64,3 +63,14 @@ const useAsync = <T>(action: () => Promise<any>, customOption: object = {}): Asy
 };
 
 export default useAsync;
+
+/** 异步请求的使用 */
+
+// const { loading, loadMore } = useAsync(getTopicsByTab, {
+//   mannual: false,
+//   onSuccess: (res: any) => {
+//     console.log(99, res);
+//     setData(res.data);
+//   },
+//   onError: () => {}
+// });

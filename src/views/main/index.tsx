@@ -9,9 +9,7 @@ import { MainWrapper, Fixed } from './style';
 
 import logoImg from '../../assets/svg/logo.svg';
 
-const WJMain: React.FC = (props) => {
-  const [data, setData] = useState(0);
-
+const WJMain: React.FC = () => {
   return (
     <MainWrapper>
       <Fixed>

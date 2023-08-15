@@ -39,3 +39,16 @@ useRef 返回的 ref 对象在组件的整个生命周期内保持不变，也�
 ### 5.style.compontnt
 
 1.可以传入动态参数，在 component/loading 组件中
+
+### 6. intersection-observer 无线滚动
+
+使用场景： 1.可以用作监听下拉滚动，视口出来了再播放视频 2.实现无限下拉
+
+IntersectionObserver: 一个元素是否在视窗中可见， 通过该对象实现对于 DOM 元素的异步监听功能的实现
+callback:回调参数
+options：配置项
+
+const observer = new IntersectionObserver(callback, options);
+observer.observe(target); // target 是被观察的目标元素
+observer.unobserve(target); // 取消观察
+observer.disconnect(); // 监听多个停止所有

@@ -17,6 +17,7 @@ const TabberPage: React.FC<IProps> = (props) => {
   const navigate = useNavigate();
 
   const handelJump = (route: string) => {
+    console.log(999, route);
     navigate(route);
   };
 
