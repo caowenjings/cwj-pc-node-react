@@ -48,4 +48,6 @@ class Node extends Service {
   }
 }
 
-export default new Node();
+const node = new Node();
+
+export default node;

@@ -50,6 +50,7 @@ const AllPage: React.FC = () => {
   );
 
   const hasList = useMemo(() => {
+    console.log(53, list);
     return !isEmpty(list);
   }, [list]);
 

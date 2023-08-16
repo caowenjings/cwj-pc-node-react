@@ -11,12 +11,18 @@ export interface Tabber {
 }
 
 /** ------------------ 文章具体内容 ------------------------------------ */
+
+interface Iauthor {
+  avatar_url: string;
+  loginname: string;
+}
+
 export interface Topic {
   id: string;
   tab: string;
   title: boolean;
   author_id: string;
-  author: string;
+  author: Iauthor;
   content?: string;
   good?: boolean;
   top?: boolean;

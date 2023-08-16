@@ -8,7 +8,14 @@ pick 获取指定属性的类型，得到新类型
 
 ## 使用案例
 
-### 1.默认值以及类型设置 https://www.cnblogs.com/qiqi715/p/14954081.html
+### 1.类型设置
+
+interface{
+style?: React.CSSProperties;
+onClick: (e: React.MouseEvent) => {}
+}
+
+### 2.默认值以及类型设置 https://www.cnblogs.com/qiqi715/p/14954081.html
 
 const defaultProps = {
 name: 'Stranger',
@@ -19,9 +26,9 @@ type IProps = typeof defaultProps; ====> 等价于 {name：string,age:number}
 type IProps1 = Partial<typeof defaultProps>; ====> 等价于 {name?：string,age?:number}
 type IProps2 = {like: number} & Partial<typeof defaultProps >; ====> 等价于 {like：number,name?：string,age?:number}
 
-### 2.接口定义
+### 3.接口定义
 
-#### 2.1 interface 接口中的函数定义
+#### 4.1 interface 接口中的函数定义
 
 https://blog.csdn.net/weixin_44959855/article/details/121631562
 
@@ -36,7 +43,7 @@ say(): string, // 表示是一个函数，返回值是 string
 isNoMore?(result: any): boolean; // 表示是一个可选函数，返回值是 boolean 类型，参数是 result
 }
 
-### 3.泛型
+### 4.泛型
 
 如果要求第一个参数的类型和第二个参数的类型相同，那就是要泛型
 
