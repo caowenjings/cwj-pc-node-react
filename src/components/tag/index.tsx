@@ -1,4 +1,6 @@
-/** tag */
+/** tag
+ *  规范了对象映射值的规范写法
+ */
 import React, { memo } from 'react';
 import { DICT } from './content';
 

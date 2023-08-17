@@ -1,4 +1,6 @@
-/** 骨架图 */
+/** 骨架图
+ * img 实现了，图片没加载处理有默认图
+ */
 import React, { useState, memo } from 'react';
 
 import { ImageWrapper } from './style';
