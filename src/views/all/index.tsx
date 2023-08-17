@@ -1,6 +1,5 @@
 /** 首页页面 */
-import React, { memo, useCallback, useRef, useMemo, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React, { memo, useCallback, useRef, useMemo, useState, useEffect } from 'react';
 
 import { tabList } from '@/content';
 import sdk from '@/service/node';
@@ -50,7 +49,6 @@ const AllPage: React.FC = () => {
   );
 
   const hasList = useMemo(() => {
-    console.log(53, list);
     return !isEmpty(list);
   }, [list]);
 
