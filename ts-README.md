@@ -1,6 +1,6 @@
 keyof 获取对象的属性值，只能用于对象
 typeof 获取其类型和必传属性
-partial 变成可选项
+partial 变成可选项 (Partial 支持你先定义变量，再通过变量来定义类型)
 Required 变成必选项
 pick 获取指定属性的类型，得到新类型  
 ------type ObjType = {name: string;age: number;}
