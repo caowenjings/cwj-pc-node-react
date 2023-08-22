@@ -34,6 +34,8 @@ export default memo(App);
 3.useRef
 useRef 返回的 ref 对象在组件的整个生命周期内保持不变，也就是说每次重新渲染函数组件时，返回的 ref 对象都是同一个
 
+可以获取实时的数据
+
 4.useNavigate 路由跳转
 
 ### 4.style.compontnt
@@ -72,3 +74,25 @@ observer.disconnect(); // 监听多个停止所有
 1. Image 组件 实现了，图片没加载处理有默认图
 
 2. Tag 组件 规范了对象映射值的规范写法
+
+3. 没有数据时要显示骨架图， 在 info/list
+
+list hasList 用 usememo 优化
+
+4.没有数据显示骨架图 Skelention
+
+5.T 范型学习使用
+
+user 组件
+
+useInitPisition 定义页面的滚动条位置
+
+info 组件 没有数据时显示骨架图
+
+list 组件 没有数据时显示骨架图
+
+user 中的 useAsyc 解释使用了 T
+
+给默认值 { } as UserDetail
+
+如果一个函数需要传给另外一个组件或者函数，最好用 useCallback
