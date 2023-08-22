@@ -18,7 +18,7 @@ interface ErrorHandler {
 const noop = () => {};
 
 const defaultOption = {
-  mannual: false, //自动触发请求：false 自动触发第一次请求，true不触发
+  mannual: false, //是否手动执行：false 自动触发第一次请求，true不触发
   onSuccess: noop as SuccessHandler,
   onError: noop as ErrorHandler
 };
