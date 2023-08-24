@@ -10,8 +10,10 @@ import ScrollList from '@/components/scroll-list';
 import Tabber from '@/components/tabber';
 import Card from './components/card';
 import { TabWrapper, ListWrapper, AllWrapper } from './style';
+import createSkeleton from './components/Skeleton/index';
 
 const PAGE_SIZE = 20;
+const Skeleton = createSkeleton(5);
 
 const AllPage: React.FC = () => {
   const [tag, setTag] = useState('');
@@ -48,9 +50,8 @@ const AllPage: React.FC = () => {
     [tag]
   );
 
-  const hasList = useMemo(() => {
-    return !isEmpty(list);
-  }, [list]);
+  /** 是否有数据 */
+  const hasList = useMemo(() => !isEmpty(list), [list]);
 
   return (
     <AllWrapper>
@@ -65,6 +66,8 @@ const AllPage: React.FC = () => {
             })}
           </ScrollList>
         )}
+        {/* 骨架图 */}
+        {!hasList && Skeleton}
       </ListWrapper>
     </AllWrapper>
   );

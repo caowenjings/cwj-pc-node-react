@@ -69,26 +69,52 @@ observer.disconnect(); // 监听多个停止所有
 
 ### 6.timeago.js 的使用，实现几小时前，几天前，几周前
 
+### 7.react-content-loader 基于 SVG 可以轻易地创造骨架式的 加载页面(loading)(有点像 Facebook 的卡片加载)
+
+属性：
+speed: 占位符填充速度。
+width: 占位符宽度。
+height: 占位符高度。
+viewBox: SVG 视图框大小。
+backgroundColor: 占位符背景颜色。
+foregroundColor: 占位符前景颜色。
+
+svg 图形
+属性值：{
+fill：填充色
+stroke-width：矩形边界的宽度
+stroke：矩形边界的颜色
+x：矩形左边的位置（比如：x="50"表示从左边边缘移动 50px）
+y: 矩形上边的位置（比如：y="20"表示从顶部边缘移动 20px）
+fill-opacity:填充色透明度
+opacity:透明度
+stroke-opacity：笔触颜色的透明度（合法范围为：0 到 1）
+rx,ry: 矩形圆角
+}
+
+方形 <rect>
+圆形 <circle>
+椭圆 <ellipse>
+线条 <line>
+折线 <polyline>
+多边形 <polygon>
+路径 <path>
+
 ### 小结：
 
 1. Image 组件 实现了，图片没加载处理有默认图
 
 2. Tag 组件 规范了对象映射值的规范写法
 
-3. 没有数据时要显示骨架图， 在 info/list
+3. 没有数据时要显示骨架图 Skelention， 在 info/list
 
-list hasList 用 usememo 优化
-
-4.没有数据显示骨架图 Skelention
+4.list hasList 用 usememo 优化
 
 5.T 范型学习使用
 
 user 组件
 
-useInitPisition 定义页面的滚动条位置
-
 info 组件 没有数据时显示骨架图
-
 list 组件 没有数据时显示骨架图
 
 user 中的 useAsyc 解释使用了 T

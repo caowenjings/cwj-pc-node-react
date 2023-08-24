@@ -4,7 +4,8 @@ export const navList: Tabber[] = [
   { name: '首页', route: '/' },
   { name: '新手入门', route: '/getstart' },
   { name: 'API', route: '/api' },
-  { name: '关于', route: '/about' }
+  { name: '关于', route: '/about' },
+  { name: '用户', route: '/user' }
 ];
 
 export const tabList: Tabber[] = [

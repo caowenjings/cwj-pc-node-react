@@ -66,3 +66,7 @@ isNoMore?(result: any): boolean; // 表示是一个可选函数，返回值是 b
 function identity <T>(value:T) : T {return value}
 等价于 ||
 function identityNumber(value: number): number { return value}
+
+### 5.确定了参数名，进行类型
+
+const WJInfo: React.FC<{ value: IInfoProps | undefined }> = (props) => {

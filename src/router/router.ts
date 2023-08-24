@@ -18,8 +18,8 @@ const router: RoutersType[] = [
     routes: []
   },
   {
-    path: '/my',
-    component: lazy(() => import('../views/about')),
+    path: '/user',
+    component: lazy(() => import('../views/user')),
     routes: []
   },
   {

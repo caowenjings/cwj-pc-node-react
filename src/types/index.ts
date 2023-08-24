@@ -31,3 +31,11 @@ export interface Topic {
   last_reply_at: string;
   create_at: string;
 }
+
+/** ---------------------用户----------------------- */
+export interface ArticleLink {
+  author: Iauthor;
+  id: string;
+  last_reply_at: string;
+  title: string;
+}
