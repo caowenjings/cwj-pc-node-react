@@ -70,3 +70,26 @@ function identityNumber(value: number): number { return value}
 ### 5.确定了参数名，进行类型
 
 const WJInfo: React.FC<{ value: IInfoProps | undefined }> = (props) => {
+
+### 6.enum
+
+用来定义常量的情况
+
+enum Direction {
+Up = "up"
+Down = "down",
+Left = "left",
+Right = "right",
+}
+const arrayValues = Object.values(Direction) // ['up','down','left','right']
+
+获取枚举的 value
+type IValue = `${Direction}` // 'up' | 'down' | 'left' | 'right'
+Object.keys(Direction)
+获取枚举的 key
+type IKey = keyof typeof Direction // 'Up' | 'Down' | 'Left' |'Right'
+
+可以映射
+Direction[Up] //'up'
+
+Direction["up"] // Up

@@ -20,7 +20,7 @@ interface UserDetail {
 }
 const WJUser: React.FC = () => {
   // const [data, setData] = useState(0);
-  const { name = '' } = useParams();
+  const { name = '张' } = useParams();
 
   useInitPosition(0, 0);
 
