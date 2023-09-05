@@ -106,19 +106,11 @@ rx,ry: 矩形圆角
 
 2. Tag 组件 规范了对象映射值的规范写法
 
-3. 没有数据时要显示骨架图 Skelention， 在 info/list
+3. User 组件 没有数据时要显示骨架图 Skelention， 在 info/list
 
-4.list hasList 用 usememo 优化
+   3.1 list hasList 用 usememo 优化
 
-5.T 范型学习使用
-
-user 组件
-
-info 组件 没有数据时显示骨架图
-list 组件 没有数据时显示骨架图
-
-user 中的 useAsyc 解释使用了 T
-
-给默认值 { } as UserDetail
+   3.2 T 范型学习使用：user 中的 useAsyc 解释使用了 T
+   3.3 给默认值 { } as UserDetail
 
 如果一个函数需要传给另外一个组件或者函数，最好用 useCallback
