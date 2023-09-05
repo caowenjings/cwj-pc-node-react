@@ -36,7 +36,7 @@ class Node extends Service {
    * @param {String} username
    */
   getUserDetail(username: string) {
-    return this.get(`/user/${username}`);
+    return this.get(`/user/hyj1991`);
   }
 
   /**
@@ -44,6 +44,7 @@ class Node extends Service {
    * @param {String}} username
    */
   getUserCollection(username: string) {
+    username = 'hyj1991';
     return this.get(`/topic_collect/${username}`);
   }
 }
