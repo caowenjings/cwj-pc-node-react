@@ -2,30 +2,40 @@
 import React, { useState, memo, useEffect } from 'react';
 import { message } from 'antd';
 
+import { Btn, Box, Left, List, Right } from './style';
+
 interface IApp {}
 
 const App: React.FC<IApp> = (props) => {
-  const [data, setData] = useState(0);
+  const [data, setData] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
 
-  useEffect(() => {
-    document.addEventListener('visibilitychange', handleVisibilitychange);
-
-    return () => {
-      console.log(44);
-      document.removeEventListener('visibilitychange', () => {});
-    };
-  }, []);
-
-  const handleVisibilitychange = () => {
-    console.log(232323, document.visibilityState);
-    if (document.visibilityState == 'hidden') {
-      document.title = '禁止切换窗口';
-    } else if (document.visibilityState == 'visible') {
-      document.title = 'tab1';
-    }
+  const handelOpen = (type: number) => {
+    let getEle = document.getElementById('list' + type)!;
+    getEle.scrollIntoView();
   };
 
-  return <div>123{data}</div>;
+  return (
+    <Box>
+      <Left>
+        {data.map((item) => {
+          return (
+            <Btn
+              onClick={() => {
+                handelOpen(item);
+              }}
+            >
+              {item}
+            </Btn>
+          );
+        })}
+      </Left>
+      <Right>
+        {data.map((item) => {
+          return <List id={'list' + item}>内容：{item}</List>;
+        })}
+      </Right>
+    </Box>
+  );
 };
 
 export default memo(App);
