@@ -198,3 +198,8 @@ type B = { [P in K]: number } // { a: number; b: number}
 
 解释：在对象类型中创建一个新的属性成员，P 是类型变量，代表每次遍历出来的成员类型，并且 P 可以作为对象属性值的类型 类似这样：[P in K]: P
 K 表示要遍历的类型， 由于遍历的结果类型要作为对象属性名， 因此类型 K 必须能够赋值给联合类型 string | number | symbol
+
+###
+
+规范文档
+https://codeleading.com/article/56132194615/
