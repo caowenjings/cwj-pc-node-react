@@ -3,6 +3,9 @@ typeof 获取其类型和必传属性
 partial 变成可选项 (Partial 支持你先定义变量，再通过变量来定义类型)
 Required 变成必选项
 pick 获取指定属性的类型，得到新类型  
+Omit 删除指定的属性
+extends 继承
+Record 快速创建类型，都是必填
 ------type ObjType = {name: string;age: number;}
 ------type Person = Pick<ObjType, 'name'> == type ObjType = {name: string}
 
@@ -26,7 +29,8 @@ interface TagDict {
 [index: string]: cate;
 }
 
-export const DICT: TagDict = {
+eg：
+const DICT: TagDict = {
 top: { text: '置顶', color: COLOR_RED },
 good: { text: '精华', color: COLOR_ORANGE_DEEP },
 };
@@ -180,3 +184,17 @@ type OmitUser = { age: number; name: string; }
 type Coord = Record<'x' | 'y', number>;
 // 等价于
 type Coord = { x: number;y: number}
+
+### 14. extends 继承
+
+T extends U ? X :Y
+
+解释： extends 是关键字； T、 U、 X 和 Y 均表示一种类型。若类型 T 能赋值给类型 U，则条件类型的结果就是类型 X，反之结果为类型 Y
+
+### 15. in
+
+type K = "a" | "b"
+type B = { [P in K]: number } // { a: number; b: number}
+
+解释：在对象类型中创建一个新的属性成员，P 是类型变量，代表每次遍历出来的成员类型，并且 P 可以作为对象属性值的类型 类似这样：[P in K]: P
+K 表示要遍历的类型， 由于遍历的结果类型要作为对象属性名， 因此类型 K 必须能够赋值给联合类型 string | number | symbol

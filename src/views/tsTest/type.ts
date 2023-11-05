@@ -22,3 +22,16 @@ interface vegetable_interfacee {
 }
 
 const vegetable1: vegetable_Type = { apple: 1, orange: 2 };
+
+enum Gender {
+  gril,
+  boy
+}
+
+type User = {
+  gender: Gender;
+};
+
+const user: User = {
+  gender: Gender.gril
+};
