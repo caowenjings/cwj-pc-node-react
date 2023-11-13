@@ -13,6 +13,11 @@ const router: RoutersType[] = [
     routes: []
   },
   {
+    path: '/tsTest',
+    component: lazy(() => import('@/views/tsTest/index')),
+    routes: []
+  },
+  {
     path: '/about',
     component: lazy(() => import('@/views/about/index')),
     routes: []
