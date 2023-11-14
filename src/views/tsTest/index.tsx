@@ -1,6 +1,8 @@
 /** ts使用案例 */
+
 import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
 import { Button, Input } from 'antd';
+import html2text from 'xss';
 
 const { TextArea } = Input;
 const WJTsText: React.FC = () => {
