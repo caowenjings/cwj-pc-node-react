@@ -35,7 +35,7 @@ top: { text: '置顶', color: COLOR_RED },
 good: { text: '精华', color: COLOR_ORANGE_DEEP },
 };
 
-### 2.默认值以及类型设置 https://www.cnblogs.com/qiqi715/p/14954081.html
+### 2.默认值以及类型设置 举例https://www.cnblogs.com/qiqi715/p/14954081.html
 
 const defaultProps = {
 name: 'Stranger',

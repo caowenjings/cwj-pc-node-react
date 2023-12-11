@@ -29,7 +29,7 @@ view
 |- article
 |   |- index.tsx // 文章详情页
 |   |- style.tsx
-|   |- code-prettify-sunburst.css
+|   |- code-prettify-sunburst.cssc'w'j
 |   |- comment
 |   |   |- index.tsx // 评论详情
 |   |   |- style.tsx

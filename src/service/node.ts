@@ -47,6 +47,13 @@ class Node extends Service {
     username = 'hyj1991';
     return this.get(`/topic_collect/${username}`);
   }
+
+  /** 文件下载
+   *  虚拟路径
+   */
+  getDown(url: string, para: string, data: any) {
+    return this.get(`${url}/topic_collect`);
+  }
 }
 
 const node = new Node();
